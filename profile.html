@@ -5,56 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile - Kevin Chisholm</title>
+    <link rel="stylesheet" href="./css/profile.css" />
   </head>
   <body>
     <header>
       <h1>Profile - Kevin Chisholm</h1>
     </header>
-    <section>
-      <img src="images/Profile.png" alt="Kevin Chisholm Profile Photo" width="250" height="300" />
-      <h2>About Me</h2>
-      <ul>
-        <li>Where were you born? - I was born in Jamaica.</li>
-        <li>Where do you live now? - I currently live in Jamaica.</li>
-        <li>What's your favorite food? - My favorite food is Yogurt Smoothie.</li>
-        <li>What's your favorite hobbies? - My favorite hobbies are watching tv, reading and sleeping</li>
-      </ul>
-      <p>
-        Hi, I'm Kevin! I do Freelancing on fiverr and other platforms, Prior to now, I ran my own business for about 14
-        years.
-      </p>
-      <a href="https://www.linkedin.com/in/kevin-chisholm-4639b026//">Connect with me on LinkedIn</a>
-    </section>
-    <section>
-      <h2>Interests</h2>
-      <ul>
-        <li>Reading</li>
-        <li>Paying Games</li>
-        <li>Watching Tv</li>
-        <li>Serfing the Internet</li>
-      </ul>
-      <audio src="mp3/Sample_MP3_700KB.mp3" controls loop>
-        Your browser does not support HTML5 audio. Here is
-        <a href="mp3/Sample_MP3_700KB.mp3">a link to the audio</a> instead.
-      </audio>
-      <br />
-      <a href="#contact">Contact me</a>
-    </section>
-    <section>
-      <img src="images/IMG_0024.jpeg" alt="Kevin Chisholm Avatar" width="250" height="300" />
-      <h2>Sample photos to show links</h2>
-      <p>Here are some photos to show samples of image links</p>
-      <img src="images/pexels-cottonbro-studio-4778341.jpeg" alt="Study Photo 1" width="250" height="300" />
-      <img src="images/pexels-vlada-karpovich-4050287.jpeg" alt="Study Photo 2" width="250" height="300" />
-      <br />
-      <a href="#top">Back to top</a>
-    </section>
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>
-        Feel free to email me at <strong>info@westgreenllc.com</strong> or give me a call at
-        <strong>(305) 906-3424</strong>.
-      </p>
-    </section>
+    <main>
+      <section>
+        <div class="hero">
+          <div id="profile_photo">
+            <img src="images/Profile.png" alt="Kevin Chisholm Profile Photo" width="250" height="300" />
+          </div>
+          <div id="about_me">
+            <div>
+              <h2>About Me</h2>
+            </div>
+            <ul>
+              <li>Where were you born? - I was born in Jamaica.</li>
+              <li>Where do you live now? - I currently live in Jamaica.</li>
+              <li>What's your favorite food? - My favorite food is Yogurt Smoothie.</li>
+              <li>What's your favorite hobbies? - My favorite hobbies are watching tv, reading and sleeping</li>
+            </ul>
+            <div class="linkedin_link">
+              <p>Connect with me on</p>
+              <a href="https://www.linkedin.com/in/kevin-chisholm-4639b026//"
+                ><img src="./images/LI-Logo.png" alt="linkedin Logo" width="50px"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="freelance">
+          <p class="introduction">
+            Hi, I'm Kevin! I do Freelancing on fiverr and other platforms, Prior to now, I ran my own business for about
+            14 years.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>Interests</h2>
+        <ul>
+          <li>Reading</li>
+          <li>Playing Games</li>
+          <li>Watching Tv</li>
+          <li>Serfing the Internet</li>
+        </ul>
+        <audio src="mp3/Sample_MP3_700KB.mp3" controls loop>
+          Your browser does not support HTML5 audio. Here is
+          <a href="mp3/Sample_MP3_700KB.mp3">a link to the audio</a> instead.
+        </audio>
+        <br />
+        <a href="#contact">Contact me</a>
+      </section>
+      <section class="sample_photos">
+        <img src="images/IMG_0024.jpeg" alt="Kevin Chisholm Avatar" width="250" height="300" />
+        <h2>Sample photos to show links</h2>
+        <p>Here are some photos to show samples of image links</p>
+        <img src="images/pexels-cottonbro-studio-4778341.jpeg" alt="Study Photo 1" width="250" height="300" />
+        <img src="images/pexels-vlada-karpovich-4050287.jpeg" alt="Study Photo 2" width="250" height="300" />
+        <br />
+        <a href="#top">Back to top</a>
+      </section>
+    </main>
+    <footer>
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>
+          Feel free to email me at <strong>info@westgreenllc.com</strong> or give me a call at
+          <strong>(305) 906-3424</strong>.
+        </p>
+      </section>
+    </footer>
   </body>
 </html>

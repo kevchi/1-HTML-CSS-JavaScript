@@ -1,0 +1,109 @@
+/*Reset the default styles including the pseuso element*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*this replaces the content-box default*/
+}
+
+/*Global Styles*/
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  line-height: 1.5em;
+  background-color: fefefe;
+  color: #333;
+  padding: 20px;
+}
+
+/*Header Styles*/
+header {
+  background-color: aquamarine;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+  border-radius: 25px;
+}
+
+header h1 {
+  margin: auto;
+  font-size: 4em;
+}
+
+/*Styling of the main content section */
+main {
+  margin: auto;
+  padding: auto;
+  text-align: center;
+}
+
+/*Styling for all section content*/
+section {
+  margin: 35px;
+  padding: 15px;
+  background-color: beige;
+  border-radius: 5px;
+  box-shadow: 10px 10px 7px 5px rgb(0, 0, 0, 0.3);
+}
+
+/*Styling for Hero, profile_photo, & about_me classes*/
+.hero {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#profile_photo {
+  width: 200px;
+  height: auto;
+  margin: auto;
+  max-width: 45%;
+}
+
+#about_me {
+  flex-grow: 1;
+  max-width: 45%;
+}
+
+/*Styling for Freelance class*/
+
+/*Styling the Images*/
+#profile_photo img,
+.sample_photos img {
+  max-width: 110%;
+  margin: auto;
+  border-radius: 50%;
+  border: 5px solid #fdfdfd;
+}
+
+.linkedin_link {
+  background-color: azure;
+  max-width: 200px;
+  margin: auto;
+}
+.linkedin_link img {
+  display: inline-block;
+  flex-direction: row;
+}
+.linkedin_link p {
+  display: inline-block;
+  flex-direction: row;
+}
+
+/*Adjusted font size for h1*/
+@media all and (max-width: 800px) {
+  header h1 {
+    font-size: 3rem;
+    color: rgb(187, 49, 122);
+  }
+}
+
+/*Adjusted font size for h1*/
+@media all and (max-width: 650px) {
+  header h1 {
+    font-size: 2rem;
+    color: red;
+  }
+}
