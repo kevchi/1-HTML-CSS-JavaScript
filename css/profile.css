@@ -31,7 +31,8 @@ header h1 {
 }
 
 /*Styling of the main content section */
-main {
+main,
+footer {
   margin: auto;
   padding: auto;
   text-align: center;
@@ -100,7 +101,7 @@ section {
 }
 
 /*Styling the section Headings*/
-section h2 {
+h2 {
   font-size: 24px;
   margin: 10px;
 }
