@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>The Color Guessing Game</title>
+  </head>
+  <body>
+    <h1>Color Guessing Game</h1>
+    <button type="button" onclick="runGame()">Start Game</button>
+
+    <!-- /**/ // /**/ -->
+    <!-- /**/ // /**/ -->
+
+    <script>
+      const COLORS_ARRAY = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+
+      function runGame() {
+        let guess = "";
+        let correct = false;
+
+        const random = Math.random(); // 0 - 0.9999999999
+        const zeroTwoDecimal = random * COLORS_ARRAY.length; //0 - 9.9999999999
+        const targetIndex = Math.floor(zeroTwoDecimal); // 0 - 9
+        //const randomColor = COLORS_ARRAY[targetIndex]; // gold
+        const target = COLORS_ARRAY[targetIndex]; // gold
+
+        do {
+          guess = prompt(
+            "I am thinking of one of these colors:\n\n" + COLORS_ARRAY.join(", ") + "\n\nWhat color am I thinking of?\n"
+          );
+          if (guess === null) {
+            alert("The game has been aborted.");
+            return;
+          }
+          guess = guess.toLowerCase();
+          if (!COLORS_ARRAY.includes(guess)) {
+            alert("That color is not in the array.");
+          } else if (guess < target) {
+            alert(
+              "Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically higher than mine.\n\nPlease try again.\n"
+            );
+          } else if (guess > target) {
+            alert(
+              "Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically lower than mine.\n\nPlease try again.\n"
+            );
+          } else {
+            alert(`Congratulations! You guessed the color ${target}!`);
+            correct = true;
+          }
+        } while (!correct);
+      }
+
+      //  guess = guess.toLowerCase();
+      //     if (!COLORS_ARRAY.includes(guess)) {
+      //       alert(`Sorry, I don't recognize your color\n\nThe available colors are: ${COLORS_ARRAY.join(", ")}`);
+
+      //       guesses++;
+      //     }
+      // else if (guess < target) {
+      //       alert(
+      //         `Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically higher than mine.\n\nThe available colors are: ${COLORS_ARRAY.join(
+      //           ", "
+      //         )}`
+      //       );
+      //       guesses++;
+      //     } else if (guess > target) {
+      //       alert(
+      //         `Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically lower than mine.\n\nThe available colors are: ${COLORS_ARRAY.join(
+      //           ", "
+      //         )}`
+      //       );
+      //       guesses++;
+      //     } else {
+      //       alert(
+      //         `Congratulations! You have guessed the color! ${target}! \n\nIt took you ${guesses} guesses to finish the game!\n\nHit the OK to see the background.`
+      //       );
+      //       document.body.style.backgroundColor = target;
+      //       correct = true;
+      //     }
+    </script>
+  </body>
+</html>

@@ -20,37 +20,56 @@
       function runGame() {
         let guess = "";
         let correct = false;
+        let guesses = 0;
 
-        const random = Math.random(); // 0 - 0.9999999999
-        const zeroTwoDecimal = random * COLORS_ARRAY.length; //0 - 9.9999999999
-        const targetIndex = Math.floor(zeroTwoDecimal); // 0 - 9
+        const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
+        const target = COLORS_ARRAY[targetIndex];
+        //const random = Math.random(); // 0 - 0.9999999999
+        //const zeroTwoDecimal = random * COLORS_ARRAY.length; //0 - 9.9999999999
         //const randomColor = COLORS_ARRAY[targetIndex]; // gold
-        const target = COLORS_ARRAY[targetIndex]; // gold
+        // const target = COLORS_ARRAY[targetIndex]; // gold
+
+        console.log(target);
 
         do {
           guess = prompt(
-            "I am thinking of one of these colors:\n\n" + COLORS_ARRAY.join(", ") + "\n\nWhat color am I thinking of?\n"
+            "I am thinking of one of these colors:\n\n" + COLORS_ARRAY + "\n\nWhat color am I thinking of?\n"
           );
           if (guess === null) {
-            alert("The game has been aborted.");
+            alert("Goodbye!");
             return;
           }
-          guess = guess.toLowerCase();
-          if (!COLORS_ARRAY.includes(guess)) {
-            alert("That color is not in the array.");
-          } else if (guess < target) {
+          correct = checkGuess(guess, target);
+          guesses++;
+        } while (!correct);
+
+        alert("Congratulations! You guessed the color '" + target + "' in " + guesses + " guesses!");
+      }
+
+      function checkGuess(guess, target) {
+        let correct = false;
+
+        if (COLORS_ARRAY.includes(guess)) {
+          if (guess < target) {
             alert(
-              "Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically higher than mine.\n\nPlease try again.\n"
+              `Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically higher than mine.\n\nThe available colors are: ${COLORS_ARRAY.join(
+                ", "
+              )}`
             );
           } else if (guess > target) {
             alert(
-              "Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically lower than mine.\n\nPlease try again.\n"
+              `Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically lower than mine.\n\nThe available colors are: ${COLORS_ARRAY.join(
+                ", "
+              )}`
             );
           } else {
-            alert(`Congratulations! You guessed the color ${target}!`);
             correct = true;
           }
-        } while (!correct);
+        } else {
+          alert("That color is not in the array.");
+        }
+
+        return correct;
       }
     </script>
   </body>
