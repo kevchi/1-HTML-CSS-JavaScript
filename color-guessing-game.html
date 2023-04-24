@@ -15,40 +15,39 @@
     <!-- /**/ // /**/ -->
 
     <script>
+      const COLORS_ARRAY = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+
       function runGame() {
-        const COLORS_ARRAY = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
         let guess = "";
         let correct = false;
-        let attempts = 0;
-        const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
-        const target = COLORS_ARRAY[targetIndex];
+
+        const random = Math.random(); // 0 - 0.9999999999
+        const zeroTwoDecimal = random * COLORS_ARRAY.length; //0 - 9.9999999999
+        const targetIndex = Math.floor(zeroTwoDecimal); // 0 - 9
+        //const randomColor = COLORS_ARRAY[targetIndex]; // gold
+        const target = COLORS_ARRAY[targetIndex]; // gold
 
         do {
-          guess = prompt("Guess a color:");
+          guess = prompt(
+            "I am thinking of one of these colors:\n\n" + COLORS_ARRAY.join(", ") + "\n\nWhat color am I thinking of?\n"
+          );
           if (guess === null) {
+            alert("The game has been aborted.");
             return;
           }
           guess = guess.toLowerCase();
           if (!COLORS_ARRAY.includes(guess)) {
-            alert(`That color is not in the array. The available colors are: ${COLORS_ARRAY.join(", ")}`);
+            alert("That color is not in the array.");
           } else if (guess < target) {
             alert(
-              `Your guess is alphabetically higher than the correct answer. The available colors are: \n\n ${COLORS_ARRAY.join(
-                ", "
-              )}`
+              "Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically higher than mine.\n\nPlease try again.\n"
             );
-            attempts++;
           } else if (guess > target) {
             alert(
-              `Your guess is alphabetically lower than the correct answer. The available colors are: \n\n ${COLORS_ARRAY.join(
-                ", "
-              )}`
+              "Sorry, your guess is incorrect. \n\nHint: Your color is alphabetically lower than mine.\n\nPlease try again.\n"
             );
-            attempts++;
           } else {
-            attempts++;
-            alert(`Congratulations! You guessed the color ${target} with ${attempts} wrong attempt/s!`);
-            document.body.style.backgroundColor = target;
+            alert(`Congratulations! You guessed the color ${target}!`);
             correct = true;
           }
         } while (!correct);
