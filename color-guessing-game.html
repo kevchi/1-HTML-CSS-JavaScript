@@ -17,14 +17,11 @@
     <script>
       function runGame() {
         const COLORS_ARRAY = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
-
         let guess = "";
         let correct = false;
         let attempts = 0;
-
         const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
         const target = COLORS_ARRAY[targetIndex];
-        console.log(target);
 
         do {
           guess = prompt("Guess a color:");
@@ -34,7 +31,6 @@
           guess = guess.toLowerCase();
           if (!COLORS_ARRAY.includes(guess)) {
             alert(`That color is not in the array. The available colors are: ${COLORS_ARRAY.join(", ")}`);
-            attempts++;
           } else if (guess < target) {
             alert(
               `Your guess is alphabetically higher than the correct answer. The available colors are: \n\n ${COLORS_ARRAY.join(
@@ -51,7 +47,7 @@
             attempts++;
           } else {
             attempts++;
-            alert(`Congratulations! You guessed the color ${target} in ${attempts} attempts!`);
+            alert(`Congratulations! You guessed the color ${target} with ${attempts} wrong attempt/s!`);
             document.body.style.backgroundColor = target;
             correct = true;
           }
