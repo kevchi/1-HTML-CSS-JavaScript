@@ -40,6 +40,7 @@
             alert("Goodbye!");
             return;
           }
+          guess = guess.string.toLowerCase();
           numTries++;
           correct = checkGuess(guess, target, numTries);
         } while (!correct);
