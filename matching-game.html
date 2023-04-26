@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body onload="generateFaces()">
+    <style>
+      img {
+        position: absolute;
+      }
+
+      div {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+      }
+
+      #rightSide {
+        left: 500px;
+        border-left: 1px solid black;
+      }
+    </style>
+
+    <h1>Matching Game</h1>
+    <p>Click on the extra smiling face on the left.</p>
+    <div id="leftSide"></div>
+    <div id="rightSide"></div>
+    <!-- <img src="/images/smile.png" alt="smiling face" /> -->
+
+    <script>
+      let numberOfFaces = 5; // number of faces
+      const theLeftSide = document.querySelector("#leftSide"); //or u could use // left side of the game // const theLeftSide = document.getElementById("leftSide");
+      const theRightSide = document.querySelector("#rightSide");
+
+      function generateFaces() {
+        for (let i = 0; i < numberOfFaces; i++) {
+          const face = document.createElement("img");
+          face.src = "images/smile.png";
+          const randomTop = Math.floor(Math.random() * 400) + 1;
+          const randomLeft = Math.floor(Math.random() * 400) + 1;
+          face.style.top = randomTop + "px";
+          face.style.left = randomLeft + "px";
+          theLeftSide.appendChild(face);
+        }
+
+        const leftSideImages = theLeftSide.cloneNode(true);
+        leftSideImages.removeChild(leftSideImages.lastChild);
+        theRightSide.appendChild(leftSideImages);
+
+        const theBody = document.querySelector("body");
+        theBody.addEventListener("click", gameOver);
+
+        const lastSmile = theLeftSide.lastChild;
+        lastSmile.addEventListener("click", nextLevel);
+      }
+
+      function nextLevel(event) {
+        event.stopPropagation();
+
+        // remove all child nodes of theLeftSide and theRightSide
+        while (theLeftSide.firstChild) {
+          theLeftSide.removeChild(theLeftSide.firstChild);
+        }
+        while (theRightSide.firstChild) {
+          theRightSide.removeChild(theRightSide.firstChild);
+        }
+
+        numberOfFaces += 5;
+        generateFaces();
+      }
+
+      function gameOver() {
+        const theBody = document.querySelector("body");
+        theBody.removeEventListener("click", gameOver);
+
+        const lastSmile = theLeftSide.lastChild;
+        lastSmile.removeEventListener("click", nextLevel);
+
+        alert("Game Over!");
+      }
+
+      generateFaces();
+    </script>
+  </body>
+</html>
